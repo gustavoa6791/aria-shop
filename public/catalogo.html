@@ -1,115 +1,96 @@
 <!doctype html>
 <html lang="es">
-
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Catálogo — ARIA</title>
-  <meta name="description" content="Arreglos de flores secas naturales en jarrones y ramos.">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="ARIA">
-  <meta property="og:title" content="Catálogo — ARIA">
-  <meta property="og:description" content="Arreglos de flores secas naturales en jarrones y ramos.">
-  <meta property="og:image" content="https://TU-DOMINIO.vercel.app/img/nostalgia-floral.jpg">
-  <meta property="og:url" content="https://TU-DOMINIO.vercel.app/catalogo.html">
-  <meta name="twitter:card" content="summary_large_image">
-  <link rel="icon" href="img/aria-logo.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap">
-  <link rel="stylesheet" href="styles.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Catálogo — ARIA</title>
+<meta name="description" content="Arreglos de flores secas naturales en jarrones y ramos.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ARIA">
+<meta property="og:title" content="Catálogo — ARIA">
+<meta property="og:description" content="Arreglos de flores secas naturales en jarrones y ramos.">
+<meta property="og:image" content="https://aria-shop-lake.vercel.app/img/nostalgia-floral.jpg">
+<meta property="og:url" content="https://aria-shop-lake.vercel.app/catalogo.html">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="img/aria-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap">
+<link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-  <header class="wrap site-header">
-    <a class="logo" href="index.html" aria-label="ARIA, inicio"><img src="img/aria-logo.png" alt=""></a>
-    <nav class="nav" aria-label="Principal">
-      <a href="index.html">Inicio</a>
-      <a href="catalogo.html" class="on">Catálogo</a>
-      <a href="#contacto">Contacto</a>
-    </nav>
-  </header>
-  <main>
-    <section class="wrap page-title">
-      <p class="eyebrow">Catálogo</p>
-      <h1>Nuestros arreglos</h1>
-      <p>Flores secas naturales en jarrones y ramos. Elige uno para ver sus características.</p>
-    </section>
-    <div class="wrap chips" role="group" aria-label="Filtrar por tipo">
-      <button class="chip" type="button" data-f="todos" aria-pressed="true">Todos</button>
-      <button class="chip" type="button" data-f="jarron" aria-pressed="false">Con jarrón</button>
-      <button class="chip" type="button" data-f="ramo" aria-pressed="false">Ramos</button>
-    </div>
-    <section class="wrap catalog">
-      <div class="grid" id="lista">
-        <a class="card" href="p/nostalgia-floral.html" data-cat="jarron">
-          <div class="ph"><img src="img/nostalgia-floral.jpg" alt="Nostalgia Floral: Jarrón de vidrio rosado · 35 cm"
-              loading="lazy"></div>
-          <h3>Nostalgia Floral</h3>
-          <p>Jarrón de vidrio rosado · 35 cm</p>
-        </a>
-        <a class="card" href="p/dulce-ocre.html" data-cat="jarron">
-          <div class="ph"><img src="img/dulce-ocre.jpg" alt="Dulce Ocre: Jarrón de cerámica dorado ocre · 45 cm"
-              loading="lazy"></div>
-          <h3>Dulce Ocre</h3>
-          <p>Jarrón de cerámica dorado ocre · 45 cm</p>
-        </a>
-        <a class="card" href="p/amor-primaveral.html" data-cat="jarron">
-          <div class="ph"><img src="img/amor-primaveral.jpg"
-              alt="Amor primaveral: Jarrón de vidrio pintado lila · 33 cm" loading="lazy"></div>
-          <h3>Amor primaveral</h3>
-          <p>Jarrón de vidrio pintado lila · 33 cm</p>
-        </a>
-        <a class="card" href="p/melodia-floral.html" data-cat="jarron">
-          <div class="ph"><img src="img/melodia-floral.jpg" alt="Melodía Floral: Jarrón de cerámica blanco · 40 cm"
-              loading="lazy"></div>
-          <h3>Melodía Floral</h3>
-          <p>Jarrón de cerámica blanco · 40 cm</p>
-        </a>
-        <a class="card" href="p/eternidad-dorada.html" data-cat="ramo">
-          <div class="ph"><img src="img/eternidad-dorada-1.jpg" alt="Eternidad dorada: Ramo de flores secas y follajes"
-              loading="lazy"></div>
-          <h3>Eternidad dorada</h3>
-          <p>Ramo de flores secas y follajes</p>
-        </a>
-      </div>
-    </section>
-  </main>
-  <script>
-    (function () {
-      var chips = document.querySelectorAll('.chip'), cards = document.querySelectorAll('#lista .card');
-      chips.forEach(function (c) {
-        c.addEventListener('click', function () {
-          var f = c.getAttribute('data-f');
-          chips.forEach(function (x) { x.setAttribute('aria-pressed', x === c) });
-          cards.forEach(function (k) { k.hidden = !(f === 'todos' || k.getAttribute('data-cat') === f) });
-        })
-      });
-    })();
-  </script>
-  <footer class="site-footer" id="contacto">
-    <div class="wrap">
-      <div class="top">
-        <div>
-          <h2>¿No encuentras lo que buscas?</h2>
-          <p>Cuéntanos qué tienes en mente por WhatsApp.</p>
-          <a class="btn btn-light"
-            href="https://wa.me/573153303769?text=Hola%2C%20vi%20su%20p%C3%A1gina%20y%20quisiera%20informaci%C3%B3n%20sobre%20un%20arreglo."
-            target="_blank" rel="noopener"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-              aria-hidden="true">
-              <path d="M4 20l1.3-4.2A8 8 0 1 1 8.4 18.8z" />
-            </svg> Escribir por WhatsApp</a>
-        </div>
-        <div>
-          <img src="img/aria-logo.png" alt="ARIA, Naturaleza que perdura">
-          <p class="tel">WhatsApp: +57 315 330 3769</p>
-        </div>
-      </div>
-      <div class="copy">© 2026 ARIA — Naturaleza que perdura</div>
-    </div>
-  </footer>
+<header class="wrap site-header">
+<a class="logo" href="index.html" aria-label="ARIA, inicio"><img src="img/aria-logo.png" alt=""></a>
+<nav class="nav" aria-label="Principal">
+<a href="index.html">Inicio</a>
+<a href="catalogo.html" class="on">Catálogo</a>
+<a href="#contacto">Contacto</a>
+</nav>
+</header>
+<main>
+<section class="wrap page-title">
+<p class="eyebrow">Catálogo</p>
+<h1>Nuestros arreglos</h1>
+<p>Flores secas naturales en jarrones y ramos. Elige uno para ver sus características.</p>
+</section>
+<div class="wrap chips" role="group" aria-label="Filtrar por tipo">
+<button class="chip" type="button" data-f="todos" aria-pressed="true">Todos</button>
+<button class="chip" type="button" data-f="jarron" aria-pressed="false">Con jarrón</button>
+<button class="chip" type="button" data-f="ramo" aria-pressed="false">Ramos</button>
+</div>
+<section class="wrap catalog"><div class="grid" id="lista">
+<a class="card" href="p/nostalgia-floral.html" data-cat="jarron">
+<div class="ph"><img src="img/nostalgia-floral.jpg" alt="Nostalgia Floral: Jarrón de vidrio rosado · 35 cm" loading="lazy"></div>
+<h3>Nostalgia Floral</h3>
+<p>Jarrón de vidrio rosado · 35 cm</p>
+</a>
+<a class="card" href="p/dulce-ocre.html" data-cat="jarron">
+<div class="ph"><img src="img/dulce-ocre.jpg" alt="Dulce Ocre: Jarrón de cerámica dorado ocre · 45 cm" loading="lazy"></div>
+<h3>Dulce Ocre</h3>
+<p>Jarrón de cerámica dorado ocre · 45 cm</p>
+</a>
+<a class="card" href="p/amor-primaveral.html" data-cat="jarron">
+<div class="ph"><img src="img/amor-primaveral.jpg" alt="Amor primaveral: Jarrón de vidrio pintado lila · 33 cm" loading="lazy"></div>
+<h3>Amor primaveral</h3>
+<p>Jarrón de vidrio pintado lila · 33 cm</p>
+</a>
+<a class="card" href="p/melodia-floral.html" data-cat="jarron">
+<div class="ph"><img src="img/melodia-floral.jpg" alt="Melodía Floral: Jarrón de cerámica blanco · 40 cm" loading="lazy"></div>
+<h3>Melodía Floral</h3>
+<p>Jarrón de cerámica blanco · 40 cm</p>
+</a>
+<a class="card" href="p/eternidad-dorada.html" data-cat="ramo">
+<div class="ph"><img src="img/eternidad-dorada-1.jpg" alt="Eternidad dorada: Ramo de flores secas y follajes" loading="lazy"></div>
+<h3>Eternidad dorada</h3>
+<p>Ramo de flores secas y follajes</p>
+</a>
+</div></section>
+</main>
+<script>
+(function(){
+  var chips=document.querySelectorAll('.chip'),cards=document.querySelectorAll('#lista .card');
+  chips.forEach(function(c){c.addEventListener('click',function(){
+    var f=c.getAttribute('data-f');
+    chips.forEach(function(x){x.setAttribute('aria-pressed',x===c)});
+    cards.forEach(function(k){k.hidden=!(f==='todos'||k.getAttribute('data-cat')===f)});
+  })});
+})();
+</script>
+<footer class="site-footer" id="contacto">
+<div class="wrap">
+<div class="top">
+<div>
+<h2>¿No encuentras lo que buscas?</h2>
+<p>Cuéntanos qué tienes en mente por WhatsApp.</p>
+<a class="btn btn-light" href="https://wa.me/573153303769?text=Hola%2C%20vi%20su%20p%C3%A1gina%20y%20quisiera%20informaci%C3%B3n%20sobre%20un%20arreglo." target="_blank" rel="noopener"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20l1.3-4.2A8 8 0 1 1 8.4 18.8z"/></svg> Escribir por WhatsApp</a>
+</div>
+<div>
+<img src="img/aria-logo.png" alt="ARIA, Naturaleza que perdura">
+<p class="tel">WhatsApp: +57 315 330 3769</p>
+</div>
+</div>
+<div class="copy">© 2026 ARIA — Naturaleza que perdura</div>
+</div>
+</footer>
 </body>
-
 </html>
