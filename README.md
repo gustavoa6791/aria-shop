@@ -19,4 +19,4 @@ Campos de cada producto: `id`, `nombre`, `tipo`, `categoria` (`jarron` o `ramo`)
 - Después de tener la URL final, ponla en `sitio` y vuelve a desplegar.
 
 ## Cómo funciona el botón de WhatsApp
-Abre `wa.me/<número>?text=…` con "Hola, vi este producto en mi página: <nombre>…" y el enlace de la página del producto. WhatsApp no permite adjuntar imágenes desde un enlace, pero al pegar ese enlace muestra una vista previa con la foto del producto (por eso cada producto tiene su propia página con etiquetas Open Graph).
+Abre `wa.me/<número>?text=…` con "Hola, vi este producto en tu página: <nombre>…" y el enlace de la página del producto. WhatsApp no permite adjuntar imágenes desde un enlace, pero al pegar ese enlace muestra una vista previa con la foto del producto (por eso cada producto tiene su propia página con etiquetas Open Graph).

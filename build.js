@@ -19,7 +19,7 @@ const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replac
 const sitio = C.sitio.replace(/\/$/, '');
 const img = (base, f) => `${base}img/${f}`;
 const waLink = (p) => {
-  const msg = `Hola, vi este producto en mi página: ${p.nombre}. Me interesa, ¿me das más información?\n${sitio}/p/${p.id}.html`;
+  const msg = `Hola, vi este producto en tu página: ${p.nombre}. Me interesa, ¿me das más información?\n${sitio}/p/${p.id}.html`;
   return `https://wa.me/${C.whatsapp}?text=${encodeURIComponent(msg)}`;
 };
 const waGeneric = `https://wa.me/${C.whatsapp}?text=${encodeURIComponent('Hola, vi su página y quisiera información sobre un arreglo.')}`;
