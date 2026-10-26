@@ -1,0 +1,88 @@
+{
+  "config": {
+    "nombre": "ARIA",
+    "lema": "Naturaleza que perdura",
+    "descripcion": "Flores secas y procesadas, perfectas para decorar tus espacios con estilo.",
+    "whatsapp": "573153303769",
+    "telefonoVisible": "+57 315 330 3769",
+    "sitio": "https://TU-DOMINIO.vercel.app",
+    "mostrarPrecios": false
+  },
+  "productos": [
+    {
+      "id": "nostalgia-floral",
+      "nombre": "Nostalgia Floral",
+      "tipo": "Arreglo en jarrón",
+      "categoria": "jarron",
+      "resumen": "Jarrón de vidrio rosado · 35 cm",
+      "descripcion": "Arreglo de flores secas naturales en jarrón de vidrio color rosado.",
+      "imagenes": ["nostalgia-floral.jpg"],
+      "caracteristicas": [
+        { "k": "Flores", "v": "Secas naturales" },
+        { "k": "Jarrón", "v": "Vidrio color rosado" },
+        { "k": "Altura total", "v": "35 cm" }
+      ],
+      "destacado": true
+    },
+    {
+      "id": "dulce-ocre",
+      "nombre": "Dulce Ocre",
+      "tipo": "Arreglo en jarrón",
+      "categoria": "jarron",
+      "resumen": "Jarrón de cerámica dorado ocre · 45 cm",
+      "descripcion": "Arreglo de flores secas naturales en jarrón de cerámica color dorado ocre.",
+      "imagenes": ["dulce-ocre.jpg"],
+      "caracteristicas": [
+        { "k": "Flores", "v": "Secas naturales" },
+        { "k": "Jarrón", "v": "Cerámica dorado ocre" },
+        { "k": "Altura total", "v": "45 cm" }
+      ],
+      "destacado": false
+    },
+    {
+      "id": "amor-primaveral",
+      "nombre": "Amor primaveral",
+      "tipo": "Arreglo en jarrón",
+      "categoria": "jarron",
+      "resumen": "Jarrón de vidrio pintado lila · 33 cm",
+      "descripcion": "Arreglo de flores secas naturales en jarrón de vidrio pintado de color lila.",
+      "imagenes": ["amor-primaveral.jpg"],
+      "caracteristicas": [
+        { "k": "Flores", "v": "Secas naturales" },
+        { "k": "Jarrón", "v": "Vidrio pintado lila" },
+        { "k": "Altura total", "v": "33 cm" }
+      ],
+      "destacado": false
+    },
+    {
+      "id": "melodia-floral",
+      "nombre": "Melodía Floral",
+      "tipo": "Arreglo en jarrón",
+      "categoria": "jarron",
+      "resumen": "Jarrón de cerámica blanco · 40 cm",
+      "descripcion": "Arreglo en flores secas naturales y jarrón de cerámica color blanco.",
+      "imagenes": ["melodia-floral.jpg"],
+      "caracteristicas": [
+        { "k": "Flores", "v": "Secas naturales" },
+        { "k": "Jarrón", "v": "Cerámica blanco" },
+        { "k": "Altura total", "v": "40 cm" }
+      ],
+      "destacado": true
+    },
+    {
+      "id": "eternidad-dorada",
+      "nombre": "Eternidad dorada",
+      "tipo": "Ramo",
+      "categoria": "ramo",
+      "resumen": "Ramo de flores secas y follajes",
+      "descripcion": "Diseñado para llenar cualquier espacio de luz, calidez y elegancia. Composición de varias flores secas y follajes naturales.",
+      "imagenes": ["eternidad-dorada-1.jpg", "eternidad-dorada-2.jpg"],
+      "caracteristicas": [
+        { "k": "Flores", "v": "Secas y follajes naturales" },
+        { "k": "Presentación", "v": "Ramo en envoltura" },
+        { "k": "Tonos", "v": "Dorados, blancos y malva" }
+      ],
+      "destacado": true
+    }
+  ]
+}
