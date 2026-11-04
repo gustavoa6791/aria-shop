@@ -19,7 +19,7 @@ const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replac
 const sitio = C.sitio.replace(/\/$/, '');
 const img = (base, f) => `${base}img/${f}`;
 const waLink = (p) => {
-  const msg = `Hola, vi este producto en tu página: ${p.nombre}. Me interesa, ¿me das más información?\n${sitio}/p/${p.id}.html`;
+  const msg = `Hola, vi este producto en tu página: ${p.nombre}. Me interesa, ¿me das más información?\n${sitio}/p/${p.id}`;
   return `https://wa.me/${C.whatsapp}?text=${encodeURIComponent(msg)}`;
 };
 const waGeneric = `https://wa.me/${C.whatsapp}?text=${encodeURIComponent('Hola, vi su página y quisiera información sobre un arreglo.')}`;
@@ -161,7 +161,7 @@ function catalogo() {
   const cats = [['todos', 'Todos']];
   if (P.some((p) => p.categoria === 'jarron')) cats.push(['jarron', 'Con jarrón']);
   if (P.some((p) => p.categoria === 'ramo')) cats.push(['ramo', 'Ramos']);
-  return head({ title: `Catálogo — ${C.nombre}`, desc: 'Arreglos de flores secas naturales en jarrones y ramos.', base: '', ogImage: `${sitio}/img/${P[0].imagenes[0]}`, ogUrl: `${sitio}/catalogo.html` }) +
+  return head({ title: `Catálogo — ${C.nombre}`, desc: 'Arreglos de flores secas naturales en jarrones y ramos.', base: '', ogImage: `${sitio}/img/${P[0].imagenes[0]}`, ogUrl: `${sitio}/catalogo` }) +
 `
 ${header('', 'catalogo')}
 <main>
@@ -195,7 +195,7 @@ function producto(p) {
   const base = '../';
   const otros = P.filter((x) => x.id !== p.id).slice(0, 4);
   const multi = p.imagenes.length > 1;
-  return head({ title: `${p.nombre} — ${C.nombre}`, desc: p.descripcion, base, ogImage: `${sitio}/img/${p.imagenes[0]}`, ogUrl: `${sitio}/p/${p.id}.html` }) +
+  return head({ title: `${p.nombre} — ${C.nombre}`, desc: p.descripcion, base, ogImage: `${sitio}/img/${p.imagenes[0]}`, ogUrl: `${sitio}/p/${p.id}` }) +
 `
 ${header(base, 'catalogo')}
 <main>
@@ -248,5 +248,5 @@ for (const p of P) fs.writeFileSync(path.join(OUT, 'p', `${p.id}.html`), product
 fs.writeFileSync(path.join(OUT, 'robots.txt'), `User-agent: *\nAllow: /\nSitemap: ${sitio}/sitemap.xml\n`);
 fs.writeFileSync(path.join(OUT, 'sitemap.xml'),
   `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
-  ['/', '/catalogo.html', ...P.map((p) => `/p/${p.id}.html`)].map((u) => `<url><loc>${sitio}${u}</loc></url>`).join('\n') + `\n</urlset>\n`);
+  ['/', '/catalogo', ...P.map((p) => `/p/${p.id}`)].map((u) => `<url><loc>${sitio}${u}</loc></url>`).join('\n') + `\n</urlset>\n`);
 console.log(`OK: ${P.length} productos → public/`);
