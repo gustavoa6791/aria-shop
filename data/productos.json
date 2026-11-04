@@ -22,7 +22,7 @@
         { "k": "Jarrón", "v": "Vidrio color rosado" },
         { "k": "Altura total", "v": "35 cm" }
       ],
-      "destacado": true
+      "destacado": false
     },
     {
       "id": "dulce-ocre",
@@ -81,6 +81,36 @@
         { "k": "Flores", "v": "Secas y follajes naturales" },
         { "k": "Presentación", "v": "Ramo en envoltura" },
         { "k": "Tonos", "v": "Dorados, blancos y malva" }
+      ],
+      "destacado": false
+    },
+    {
+      "id": "sombra-de-rosas",
+      "nombre": "Sombra de Rosas",
+      "tipo": "Arreglo en jarrón",
+      "categoria": "jarron",
+      "resumen": "Jarrón de vidrio blanco con textura · 36 cm",
+      "descripcion": "Todo el conjunto está cuidadosamente dispuesto en un jarrón cilíndrico de textura rústica en tono blanco, ideal para aportar un toque acogedor y sofisticado a cualquier rincón de tu hogar u oficina.",
+      "imagenes": ["sombra-de-rosas.jpg"],
+      "caracteristicas": [
+        { "k": "Flores", "v": "Secas naturales" },
+        { "k": "Jarrón", "v": "Vidrio blanco con textura" },
+        { "k": "Altura total", "v": "36 cm" }
+      ],
+      "destacado": true
+    },
+    {
+      "id": "luz-del-valle",
+      "nombre": "Luz del valle",
+      "tipo": "Arreglo en jarrón",
+      "categoria": "jarron",
+      "resumen": "Jarrón de vidrio verde oliva con textura · 50 cm",
+      "descripcion": "Belleza natural, esencia eterna. Arreglo de flores secas naturales en jarrón de vidrio color verde oliva con textura.",
+      "imagenes": ["luz-del-valle-1.jpg", "luz-del-valle-2.jpg", "luz-del-valle-3.jpg", "luz-del-valle-4.jpg"],
+      "caracteristicas": [
+        { "k": "Flores", "v": "Secas naturales" },
+        { "k": "Jarrón", "v": "Vidrio verde oliva con textura" },
+        { "k": "Altura total", "v": "50 cm" }
       ],
       "destacado": true
     }
