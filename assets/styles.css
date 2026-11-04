@@ -1,5 +1,5 @@
 :root{
-  --ground:#FEFBF1; --alt:#F4ECDC; --ink:#3B2D22; --brown:#6B4F36; --muted:#6E5C4C; --body:#5E4C3D;
+  --ground:#F5F4EC; --alt:#E3E1CF; --ink:#3B2D22; --brown:#6B4F36; --muted:#6E5C4C; --body:#5E4C3D;
   --sage:#5C6B4E; --sage-soft:#8A9A7B; --blush:#EBD9CE; --line:#E1D5BF;
   --serif:'Cormorant Garamond',serif; --sans:'Jost',system-ui,sans-serif;
 }
@@ -15,7 +15,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:300;margin:0}
 
 /* header */
 .site-header{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;padding-top:12px;padding-bottom:12px}
-.site-header .logo img{width:150px;height:169px;object-fit:cover;display:block}
+.site-header .logo img{width:150px;height:134px;object-fit:contain;display:block}
 .nav{display:flex;gap:40px;font-size:15px;letter-spacing:.14em;text-transform:uppercase;font-weight:400}
 .nav a{color:var(--ink);padding:12px 0;transition:color .2s}
 .nav a:hover{color:var(--sage)}
@@ -137,7 +137,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:300;margin:0}
   .wrap{padding-left:20px;padding-right:20px}
   .nav{gap:22px;font-size:13px}
   .site-header{flex-direction:column;justify-content:center;gap:4px}
-  .site-header .logo img{width:104px;height:117px}
+  .site-header .logo img{width:104px;height:93px}
   .hero{gap:40px}
   .hero-frame .dot{left:-12px;width:120px;height:120px;border-width:6px}
   .band .wrap{font-size:21px}
