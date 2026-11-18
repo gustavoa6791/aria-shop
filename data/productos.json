@@ -10,33 +10,6 @@
   },
   "productos": [
     {
-      "id": "armonia-rustica",
-      "nombre": "Armonía rústica",
-      "tipo": "Arreglo en jarrón",
-      "categoria": "jarron",
-      "resumen": "Jarrón en cerámica - Blanco con dorado - Altura total 35 CM",
-      "descripcion": "Flores secas en mostaza, vino y eucalipto grisáceo, reunidas en un jarrón de cerámica blanco con detalle dorado en la base. Un arreglo elegante y a la vez natural, que combina con espacios de estilo moderno o rústico.",
-      "imagenes": [
-        "armonia-rustica-mwmda2uy0.jpg"
-      ],
-      "caracteristicas": [
-        {
-          "k": "Flores",
-          "v": "Secas naturales"
-        },
-        {
-          "k": "Jarrón",
-          "v": "cerámica"
-        },
-        {
-          "k": "Altura total",
-          "v": "35 cm"
-        }
-      ],
-      "destacado": false,
-      "activo": true
-    },
-    {
       "id": "aura-calida",
       "nombre": "Aura cálida",
       "tipo": "Arreglo en jarrón",
