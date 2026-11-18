@@ -7,11 +7,14 @@
   var clone = function (x) { return JSON.parse(JSON.stringify(x)); };
   function photoSrc(name) { return state.pending[name] || '/img/' + name; }
   function changedIds() {
-    var baseById = {};
+    var baseById = {}, draftIds = {};
     state.base.forEach(function (p) { baseById[p.id] = JSON.stringify(p); });
     var out = [];
-    state.draft.forEach(function (p) { if (baseById[p.id] !== JSON.stringify(p)) out.push(p.id); });
-    if (!out.length && JSON.stringify(state.base.map(function (p) { return p.id; })) !== JSON.stringify(state.draft.map(function (p) { return p.id; }))) out.push('_orden');
+    state.draft.forEach(function (p) {
+      draftIds[p.id] = true;
+      if (baseById[p.id] !== JSON.stringify(p)) out.push(p.id);
+    });
+    state.base.forEach(function (p) { if (!draftIds[p.id]) out.push('_eliminado:' + p.id); });
     return out;
   }
   window.addEventListener('beforeunload', function (e) { if (changedIds().length) { e.preventDefault(); e.returnValue = ''; } });
@@ -170,6 +173,12 @@
         state.draft[i] = Object.assign({}, p, { activo: off });
         renderList();
       } }, off ? 'Habilitar' : 'Deshabilitar');
+      var del = off ? h('button', { class: 'btn sm danger', type: 'button', onclick: function () {
+        if (!confirm('¿Eliminar definitivamente "' + p.nombre + '"?\n\nSe borrarán sus datos y sus fotos. No se puede deshacer.')) return;
+        p.imagenes.forEach(function (f) { delete state.pending[f]; });
+        state.draft.splice(i, 1);
+        renderList();
+      } }, 'Eliminar') : null;
       list.appendChild(h('div', { class: 'row' + (off ? ' off' : '') },
         h('img', { class: 'thumb', src: photoSrc(p.imagenes[0]), alt: '' }),
         h('div', { class: 'info' },
@@ -181,7 +190,7 @@
         ),
         h('div', { class: 'acts' },
           h('button', { class: 'btn sm', type: 'button', onclick: function () { renderForm(i); } }, 'Editar'),
-          toggle)
+          toggle, del)
       ));
     });
 
@@ -189,9 +198,9 @@
     if (cambios.length) {
       var pubBtn = h('button', { class: 'btn ok', type: 'button' }, 'Guardar todos los cambios');
       pubBtn.addEventListener('click', function () { publish(pubBtn); });
-      var n = cambios.filter(function (c) { return c !== '_orden'; }).length || 1;
+      var n = cambios.length;
       banner = h('div', { class: 'banner', role: 'status' },
-        h('p', {}, 'Tienes ' + n + (n === 1 ? ' producto' : ' productos') + ' con cambios sin publicar. Aún no se ven en la página.'),
+        h('p', {}, 'Tienes ' + n + (n === 1 ? ' cambio' : ' cambios') + ' sin publicar. Aún no se ven en la página.'),
         h('div', { class: 'acts' }, pubBtn,
           h('button', { class: 'btn ghost', type: 'button', onclick: function () {
             if (confirm('¿Descartar todos los cambios sin publicar?')) { state.draft = clone(state.base); state.pending = {}; renderList(); }

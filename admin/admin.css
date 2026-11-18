@@ -68,3 +68,4 @@ input:focus,select:focus,textarea:focus,.btn:focus-visible{outline:2px solid var
 .banner .acts{display:flex;gap:10px;flex-wrap:wrap}
 .login .back{text-align:center;margin:20px 0 0;font-size:15px}
 .login .back a{color:var(--brown);text-decoration:underline;text-underline-offset:3px}
+.info .badge{display:inline-block;overflow:visible;text-overflow:clip;color:#fff;white-space:nowrap}
