@@ -15,6 +15,9 @@ h1,h2,h3{font-family:var(--serif);font-weight:300;margin:0}
 
 /* header */
 .site-header{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;padding-top:12px;padding-bottom:12px}
+.site-header{position:relative}
+.admin-link{position:absolute;top:10px;right:40px;display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;color:var(--brown);opacity:.7;transition:opacity .2s,background .2s}
+.admin-link:hover{opacity:1;background:var(--alt)}
 .site-header .logo img{width:150px;height:134px;object-fit:contain;display:block}
 .nav{display:flex;gap:40px;font-size:15px;letter-spacing:.14em;text-transform:uppercase;font-weight:400}
 .nav a{color:var(--ink);padding:12px 0;transition:color .2s}
@@ -136,6 +139,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:300;margin:0}
 @media (max-width:640px){
   .wrap{padding-left:20px;padding-right:20px}
   .nav{gap:22px;font-size:13px}
+  .admin-link{right:20px}
   .site-header{flex-direction:column;justify-content:center;gap:4px}
   .site-header .logo img{width:104px;height:93px}
   .hero{gap:40px}
