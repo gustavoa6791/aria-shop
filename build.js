@@ -6,14 +6,17 @@ const path = require('path');
 
 const ROOT = __dirname;
 const OUT = path.join(ROOT, 'public');
-const { config: C, productos: P } = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/productos.json'), 'utf8'));
+const { config: C, productos: TODOS } = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/productos.json'), 'utf8'));
 
-for (const p of P) {
+for (const p of TODOS) {
   if (!/^[a-z0-9-]+$/.test(p.id)) throw new Error(`id inválido (solo a-z, 0-9 y guiones): ${p.id}`);
   for (const f of p.imagenes) {
     if (!/^[A-Za-z0-9._-]+$/.test(f) || f.startsWith('.')) throw new Error(`imagen inválida en ${p.id}: ${f}`);
   }
 }
+
+// Los productos con "activo": false se ocultan del sitio (siguen en el JSON para poder reactivarlos desde /admin)
+const P = TODOS.filter((p) => p.activo !== false);
 
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const sitio = C.sitio.replace(/\/$/, '');
@@ -242,11 +245,12 @@ for (const f of fs.readdirSync(path.join(ROOT, 'assets'))) {
   const dest = f === 'styles.css' ? path.join(OUT, f) : path.join(OUT, 'img', f);
   fs.copyFileSync(path.join(ROOT, 'assets', f), dest);
 }
+fs.cpSync(path.join(ROOT, 'admin'), path.join(OUT, 'admin'), { recursive: true });
 fs.writeFileSync(path.join(OUT, 'index.html'), inicio());
 fs.writeFileSync(path.join(OUT, 'catalogo.html'), catalogo());
 for (const p of P) fs.writeFileSync(path.join(OUT, 'p', `${p.id}.html`), producto(p));
-fs.writeFileSync(path.join(OUT, 'robots.txt'), `User-agent: *\nAllow: /\nSitemap: ${sitio}/sitemap.xml\n`);
+fs.writeFileSync(path.join(OUT, 'robots.txt'), `User-agent: *\nAllow: /\nDisallow: /admin\nDisallow: /api/\nSitemap: ${sitio}/sitemap.xml\n`);
 fs.writeFileSync(path.join(OUT, 'sitemap.xml'),
   `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
   ['/', '/catalogo', ...P.map((p) => `/p/${p.id}`)].map((u) => `<url><loc>${sitio}${u}</loc></url>`).join('\n') + `\n</urlset>\n`);
-console.log(`OK: ${P.length} productos → public/`);
+console.log(`OK: ${P.length} productos activos (${TODOS.length - P.length} deshabilitados) → public/`);
