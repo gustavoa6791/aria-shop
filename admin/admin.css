@@ -66,3 +66,5 @@ input:focus,select:focus,textarea:focus,.btn:focus-visible{outline:2px solid var
 .banner{position:sticky;top:0;z-index:5;display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;justify-content:space-between;background:#FFF6DC;border:1px solid #E2C877;border-radius:16px;padding:14px 18px;margin-bottom:20px}
 .banner p{margin:0;flex:1 1 260px}
 .banner .acts{display:flex;gap:10px;flex-wrap:wrap}
+.login .back{text-align:center;margin:20px 0 0;font-size:15px}
+.login .back a{color:var(--brown);text-decoration:underline;text-underline-offset:3px}

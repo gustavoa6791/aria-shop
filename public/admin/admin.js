@@ -101,7 +101,8 @@
       h('label', { for: 'u' }, 'Usuario'), u,
       h('label', { for: 'p' }, 'Contraseña'), p,
       err,
-      h('div', { class: 'bar' }, btn)
+      h('div', { class: 'bar' }, btn),
+      h('p', { class: 'back' }, h('a', { href: '/' }, '← Volver al inicio'))
     );
     show(form);
     u.focus();
@@ -185,7 +186,7 @@
         h('div', {}, h('img', { src: '/img/aria-logo.png', alt: 'ARIA' }), h('h1', {}, 'Productos')),
         h('div', { class: 'acts' },
           h('button', { class: 'btn', type: 'button', onclick: function () { renderForm(-1); } }, '+ Nuevo producto'),
-          h('a', { class: 'btn ghost', href: '/', target: '_blank', rel: 'noopener' }, 'Ver página'),
+          h('a', { class: 'btn ghost', href: '/' }, '← Volver al inicio'),
           h('button', { class: 'btn ghost', type: 'button', onclick: function () {
             if (changedIds().length && !confirm('Tienes cambios sin publicar que se perderán. ¿Salir de todos modos?')) return;
             api('DELETE', '/api/login').then(function () { renderLogin(); });
