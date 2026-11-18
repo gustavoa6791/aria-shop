@@ -10,19 +10,112 @@
   },
   "productos": [
     {
+      "id": "armonia-rustica",
+      "nombre": "Armonía rústica",
+      "tipo": "Arreglo en jarrón",
+      "categoria": "jarron",
+      "resumen": "Jarrón en cerámica - Blanco con dorado - Altura total 35 CM",
+      "descripcion": "Flores secas en mostaza, vino y eucalipto grisáceo, reunidas en un jarrón de cerámica blanco con detalle dorado en la base. Un arreglo elegante y a la vez natural, que combina con espacios de estilo moderno o rústico.",
+      "imagenes": [
+        "armonia-rustica-mwmda2uy0.jpg"
+      ],
+      "caracteristicas": [
+        {
+          "k": "Flores",
+          "v": "Secas naturales"
+        },
+        {
+          "k": "Jarrón",
+          "v": "cerámica"
+        },
+        {
+          "k": "Altura total",
+          "v": "35 cm"
+        }
+      ],
+      "destacado": false,
+      "activo": true
+    },
+    {
+      "id": "aura-calida",
+      "nombre": "Aura cálida",
+      "tipo": "Arreglo en jarrón",
+      "categoria": "jarron",
+      "resumen": "Jarrón en cerámica - Color verde con textura - Altura total 32 CM",
+      "descripcion": "Una composición de flores secas y follajes en tonos ocre, terracota y vino, que llena el espacio de calidez. Está montada en un jarrón de cerámica verde con textura, que contrasta con los colores del arreglo.",
+      "imagenes": [
+        "aura-calida-mwmd8efx0.jpg"
+      ],
+      "caracteristicas": [
+        {
+          "k": "Flores",
+          "v": "Secas naturales"
+        },
+        {
+          "k": "Jarrón",
+          "v": "cerámica"
+        },
+        {
+          "k": "Altura total",
+          "v": "32 cm"
+        }
+      ],
+      "destacado": false,
+      "activo": true
+    },
+    {
+      "id": "susurro-amarillo",
+      "nombre": "Susurro amarillo",
+      "tipo": "Arreglo en jarrón",
+      "categoria": "jarron",
+      "resumen": "Jarrón en vidrio -  Color amarillo con textura - Altura total 16 CM",
+      "descripcion": "Un arreglo pequeño y luminoso, con flores secas en tonos amarillos, naranjas y blancos que alegran cualquier rincón. Viene en un jarrón de vidrio amarillo con textura, ideal para una mesa de noche, un escritorio o una repisa.",
+      "imagenes": [
+        "susurro-amarillo-mwmd6l190.jpg"
+      ],
+      "caracteristicas": [
+        {
+          "k": "Flores",
+          "v": "Secas naturales"
+        },
+        {
+          "k": "Jarrón",
+          "v": "vidrio"
+        },
+        {
+          "k": "Altura total",
+          "v": "16 cm"
+        }
+      ],
+      "destacado": false,
+      "activo": true
+    },
+    {
       "id": "nostalgia-floral",
       "nombre": "Nostalgia Floral",
       "tipo": "Arreglo en jarrón",
       "categoria": "jarron",
       "resumen": "Jarrón de vidrio rosado · 35 cm",
       "descripcion": "Arreglo de flores secas naturales en jarrón de vidrio color rosado.",
-      "imagenes": ["nostalgia-floral.jpg"],
-      "caracteristicas": [
-        { "k": "Flores", "v": "Secas naturales" },
-        { "k": "Jarrón", "v": "Vidrio color rosado" },
-        { "k": "Altura total", "v": "35 cm" }
+      "imagenes": [
+        "nostalgia-floral.jpg"
       ],
-      "destacado": false
+      "caracteristicas": [
+        {
+          "k": "Flores",
+          "v": "Secas naturales"
+        },
+        {
+          "k": "Jarrón",
+          "v": "Vidrio color rosado"
+        },
+        {
+          "k": "Altura total",
+          "v": "35 cm"
+        }
+      ],
+      "destacado": false,
+      "activo": true
     },
     {
       "id": "dulce-ocre",
@@ -31,13 +124,25 @@
       "categoria": "jarron",
       "resumen": "Jarrón de cerámica dorado ocre · 45 cm",
       "descripcion": "Arreglo de flores secas naturales en jarrón de cerámica color dorado ocre.",
-      "imagenes": ["dulce-ocre.jpg"],
-      "caracteristicas": [
-        { "k": "Flores", "v": "Secas naturales" },
-        { "k": "Jarrón", "v": "Cerámica dorado ocre" },
-        { "k": "Altura total", "v": "45 cm" }
+      "imagenes": [
+        "dulce-ocre.jpg"
       ],
-      "destacado": false
+      "caracteristicas": [
+        {
+          "k": "Flores",
+          "v": "Secas naturales"
+        },
+        {
+          "k": "Jarrón",
+          "v": "Cerámica dorado ocre"
+        },
+        {
+          "k": "Altura total",
+          "v": "45 cm"
+        }
+      ],
+      "destacado": false,
+      "activo": true
     },
     {
       "id": "amor-primaveral",
@@ -46,13 +151,25 @@
       "categoria": "jarron",
       "resumen": "Jarrón de vidrio pintado lila · 33 cm",
       "descripcion": "Arreglo de flores secas naturales en jarrón de vidrio pintado de color lila.",
-      "imagenes": ["amor-primaveral.jpg"],
-      "caracteristicas": [
-        { "k": "Flores", "v": "Secas naturales" },
-        { "k": "Jarrón", "v": "Vidrio pintado lila" },
-        { "k": "Altura total", "v": "33 cm" }
+      "imagenes": [
+        "amor-primaveral.jpg"
       ],
-      "destacado": false
+      "caracteristicas": [
+        {
+          "k": "Flores",
+          "v": "Secas naturales"
+        },
+        {
+          "k": "Jarrón",
+          "v": "Vidrio pintado lila"
+        },
+        {
+          "k": "Altura total",
+          "v": "33 cm"
+        }
+      ],
+      "destacado": false,
+      "activo": true
     },
     {
       "id": "melodia-floral",
@@ -61,13 +178,25 @@
       "categoria": "jarron",
       "resumen": "Jarrón de cerámica blanco · 40 cm",
       "descripcion": "Arreglo en flores secas naturales y jarrón de cerámica color blanco.",
-      "imagenes": ["melodia-floral.jpg"],
-      "caracteristicas": [
-        { "k": "Flores", "v": "Secas naturales" },
-        { "k": "Jarrón", "v": "Cerámica blanco" },
-        { "k": "Altura total", "v": "40 cm" }
+      "imagenes": [
+        "melodia-floral.jpg"
       ],
-      "destacado": true
+      "caracteristicas": [
+        {
+          "k": "Flores",
+          "v": "Secas naturales"
+        },
+        {
+          "k": "Jarrón",
+          "v": "Cerámica blanco"
+        },
+        {
+          "k": "Altura total",
+          "v": "40 cm"
+        }
+      ],
+      "destacado": true,
+      "activo": true
     },
     {
       "id": "eternidad-dorada",
@@ -76,13 +205,26 @@
       "categoria": "ramo",
       "resumen": "Ramo de flores secas y follajes",
       "descripcion": "Diseñado para llenar cualquier espacio de luz, calidez y elegancia. Composición de varias flores secas y follajes naturales.",
-      "imagenes": ["eternidad-dorada-1.jpg", "eternidad-dorada-2.jpg"],
-      "caracteristicas": [
-        { "k": "Flores", "v": "Secas y follajes naturales" },
-        { "k": "Presentación", "v": "Ramo en envoltura" },
-        { "k": "Tonos", "v": "Dorados, blancos y malva" }
+      "imagenes": [
+        "eternidad-dorada-1.jpg",
+        "eternidad-dorada-2.jpg"
       ],
-      "destacado": false
+      "caracteristicas": [
+        {
+          "k": "Flores",
+          "v": "Secas y follajes naturales"
+        },
+        {
+          "k": "Presentación",
+          "v": "Ramo en envoltura"
+        },
+        {
+          "k": "Tonos",
+          "v": "Dorados, blancos y malva"
+        }
+      ],
+      "destacado": false,
+      "activo": true
     },
     {
       "id": "sombra-de-rosas",
@@ -91,13 +233,25 @@
       "categoria": "jarron",
       "resumen": "Jarrón de vidrio blanco con textura · 36 cm",
       "descripcion": "Todo el conjunto está cuidadosamente dispuesto en un jarrón cilíndrico de textura rústica en tono blanco, ideal para aportar un toque acogedor y sofisticado a cualquier rincón de tu hogar u oficina.",
-      "imagenes": ["sombra-de-rosas.jpg"],
-      "caracteristicas": [
-        { "k": "Flores", "v": "Secas naturales" },
-        { "k": "Jarrón", "v": "Vidrio blanco con textura" },
-        { "k": "Altura total", "v": "36 cm" }
+      "imagenes": [
+        "sombra-de-rosas.jpg"
       ],
-      "destacado": true
+      "caracteristicas": [
+        {
+          "k": "Flores",
+          "v": "Secas naturales"
+        },
+        {
+          "k": "Jarrón",
+          "v": "Vidrio blanco con textura"
+        },
+        {
+          "k": "Altura total",
+          "v": "36 cm"
+        }
+      ],
+      "destacado": true,
+      "activo": true
     },
     {
       "id": "luz-del-valle",
@@ -106,13 +260,28 @@
       "categoria": "jarron",
       "resumen": "Jarrón de vidrio verde oliva con textura · 50 cm",
       "descripcion": "Belleza natural, esencia eterna. Arreglo de flores secas naturales en jarrón de vidrio color verde oliva con textura.",
-      "imagenes": ["luz-del-valle-1.jpg", "luz-del-valle-2.jpg", "luz-del-valle-3.jpg", "luz-del-valle-4.jpg"],
-      "caracteristicas": [
-        { "k": "Flores", "v": "Secas naturales" },
-        { "k": "Jarrón", "v": "Vidrio verde oliva con textura" },
-        { "k": "Altura total", "v": "50 cm" }
+      "imagenes": [
+        "luz-del-valle-1.jpg",
+        "luz-del-valle-2.jpg",
+        "luz-del-valle-3.jpg",
+        "luz-del-valle-4.jpg"
       ],
-      "destacado": true
+      "caracteristicas": [
+        {
+          "k": "Flores",
+          "v": "Secas naturales"
+        },
+        {
+          "k": "Jarrón",
+          "v": "Vidrio verde oliva con textura"
+        },
+        {
+          "k": "Altura total",
+          "v": "50 cm"
+        }
+      ],
+      "destacado": true,
+      "activo": true
     }
   ]
 }
