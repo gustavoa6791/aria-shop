@@ -64,22 +64,39 @@
   }
 
   // Reduce la foto a máx. 1200 px y la pasa a JPG (liviana para la web).
-  function resizeImage(file) {
+  // No usa URLs blob: (la política de seguridad del sitio las bloquea).
+  function loadBitmap(file) {
+    if (window.createImageBitmap) {
+      return createImageBitmap(file).catch(function () { return viaDataUrl(file); });
+    }
+    return viaDataUrl(file);
+  }
+  function viaDataUrl(file) {
     return new Promise(function (resolve, reject) {
-      var url = URL.createObjectURL(file);
-      var img = new Image();
-      img.onload = function () {
-        var max = 1200, w = img.naturalWidth, hh = img.naturalHeight, k = Math.min(1, max / Math.max(w, hh));
-        var c = document.createElement('canvas');
-        c.width = Math.round(w * k); c.height = Math.round(hh * k);
-        var ctx = c.getContext('2d');
-        ctx.fillStyle = '#fff'; ctx.fillRect(0, 0, c.width, c.height);
-        ctx.drawImage(img, 0, 0, c.width, c.height);
-        URL.revokeObjectURL(url);
-        resolve(c.toDataURL('image/jpeg', 0.82));
+      var fr = new FileReader();
+      fr.onload = function () {
+        var img = new Image();
+        img.onload = function () { resolve(img); };
+        img.onerror = function () { reject(new Error('read')); };
+        img.src = fr.result;
       };
-      img.onerror = function () { URL.revokeObjectURL(url); reject(new Error('No se pudo leer la foto')); };
-      img.src = url;
+      fr.onerror = function () { reject(new Error('read')); };
+      fr.readAsDataURL(file);
+    });
+  }
+  function resizeImage(file) {
+    return loadBitmap(file).then(function (img) {
+      var w = img.width || img.naturalWidth, hh = img.height || img.naturalHeight;
+      var k = Math.min(1, 1200 / Math.max(w, hh));
+      var c = document.createElement('canvas');
+      c.width = Math.round(w * k); c.height = Math.round(hh * k);
+      var ctx = c.getContext('2d');
+      ctx.fillStyle = '#fff'; ctx.fillRect(0, 0, c.width, c.height);
+      ctx.drawImage(img, 0, 0, c.width, c.height);
+      if (img.close) img.close();
+      return c.toDataURL('image/jpeg', 0.82);
+    }).catch(function () {
+      throw new Error('No se pudo leer la foto "' + file.name + '". Usa una foto JPG o PNG (las HEIC del iPhone no funcionan en este navegador).');
     });
   }
 
