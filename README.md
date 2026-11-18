@@ -24,7 +24,7 @@ Abre `wa.me/<número>?text=…` con "Hola, vi este producto en tu página: <nomb
 ## Panel de administración (`/admin`)
 Una persona no técnica entra a `https://<sitio>/admin` con usuario y contraseña y puede **crear, editar y deshabilitar** productos (con fotos). No se borra nada: un producto deshabilitado deja de verse en la página (`"activo": false` en el JSON) pero sigue en el panel para volver a habilitarlo.
 
-Cada cambio se guarda como commit en GitHub (`data/productos.json` y `assets/`) y Vercel redespliega solo (1–2 min).
+Los cambios se acumulan como borrador en el panel y el botón **Guardar todos los cambios** los publica de una vez: un solo commit en GitHub (`data/productos.json` y las fotos nuevas en `assets/`) y un solo despliegue en Vercel (1–2 min).
 
 ### Variables de entorno en Vercel (Settings → Environment Variables)
 | Variable | Valor |

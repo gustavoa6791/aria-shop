@@ -2,7 +2,19 @@
   'use strict';
   var app = document.getElementById('app');
   var toastEl = document.getElementById('toast');
-  var state = { sha: null, productos: [] };
+  // base = lo publicado; draft = tu copia de trabajo; pending = fotos nuevas aún sin subir (nombre -> data URL)
+  var state = { sha: null, base: [], draft: [], pending: {} };
+  var clone = function (x) { return JSON.parse(JSON.stringify(x)); };
+  function photoSrc(name) { return state.pending[name] || '/img/' + name; }
+  function changedIds() {
+    var baseById = {};
+    state.base.forEach(function (p) { baseById[p.id] = JSON.stringify(p); });
+    var out = [];
+    state.draft.forEach(function (p) { if (baseById[p.id] !== JSON.stringify(p)) out.push(p.id); });
+    if (!out.length && JSON.stringify(state.base.map(function (p) { return p.id; })) !== JSON.stringify(state.draft.map(function (p) { return p.id; }))) out.push('_orden');
+    return out;
+  }
+  window.addEventListener('beforeunload', function (e) { if (changedIds().length) { e.preventDefault(); e.returnValue = ''; } });
 
   // ---------- helpers ----------
   function h(tag, attrs) {
@@ -99,44 +111,75 @@
   function loadList() {
     show(h('p', { class: 'loading' }, 'Cargando productos…'));
     return api('GET', '/api/productos').then(function (d) {
-      state.sha = d.sha; state.productos = d.productos; renderList();
+      state.sha = d.sha; state.base = d.productos; state.draft = clone(d.productos); state.pending = {};
+      renderList();
     }).catch(function (e) { if (e.status !== 401) { toast(e.message, true); } });
   }
 
-  function persist(productos) {
-    return api('PUT', '/api/productos', { sha: state.sha, productos: productos }).then(function (r) {
-      state.sha = r.sha; state.productos = productos;
+  // Sube las fotos nuevas y publica todo en un solo commit.
+  function publish(btn) {
+    var usadas = {};
+    state.draft.forEach(function (p) { p.imagenes.forEach(function (f) { usadas[f] = true; }); });
+    var nuevas = Object.keys(state.pending).filter(function (n) { return usadas[n]; });
+    var blobs = {};
+    btn.disabled = true; btn.textContent = 'Publicando…';
+    return nuevas.reduce(function (p, name) {
+      return p.then(function () {
+        return api('POST', '/api/imagen', { archivo: name, data: state.pending[name] }).then(function (r) { blobs[name] = r.blob; });
+      });
+    }, Promise.resolve()).then(function () {
+      return api('POST', '/api/publicar', { sha: state.sha, productos: state.draft, blobs: blobs });
+    }).then(function (r) {
+      state.sha = r.sha; state.base = clone(state.draft);
+      toast('Publicado. El cambio se verá en la página en 1 o 2 minutos.');
+      renderList();
+    }).catch(function (e) {
+      toast('No se pudo publicar: ' + e.message, true);
+      btn.disabled = false; btn.textContent = 'Guardar todos los cambios';
     });
   }
 
   function renderList() {
+    var cambios = changedIds();
+    var baseIds = {};
+    state.base.forEach(function (p) { baseIds[p.id] = true; });
     var list = h('div', { class: 'list' });
-    if (!state.productos.length) list.appendChild(h('p', {}, 'Aún no hay productos. Crea el primero.'));
-    state.productos.forEach(function (p, i) {
+    if (!state.draft.length) list.appendChild(h('p', {}, 'Aún no hay productos. Crea el primero.'));
+    state.draft.forEach(function (p, i) {
       var off = p.activo === false;
+      var sinPublicar = cambios.indexOf(p.id) >= 0;
       var toggle = h('button', { class: 'btn sm ' + (off ? 'ok' : 'ghost'), type: 'button', onclick: function () {
-        var verbo = off ? 'habilitar' : 'deshabilitar';
-        if (!off && !confirm('¿Deshabilitar "' + p.nombre + '"? Dejará de verse en la página, pero podrás habilitarlo de nuevo.')) return;
-        toggle.disabled = true;
-        var copia = state.productos.map(function (x, j) { return j === i ? Object.assign({}, x, { activo: off }) : x; });
-        persist(copia).then(function () {
-          toast('Listo. El cambio se verá en la página en 1 o 2 minutos.');
-          renderList();
-        }).catch(function (e) { toast('No se pudo ' + verbo + ': ' + e.message, true); toggle.disabled = false; });
+        state.draft[i] = Object.assign({}, p, { activo: off });
+        renderList();
       } }, off ? 'Habilitar' : 'Deshabilitar');
       list.appendChild(h('div', { class: 'row' + (off ? ' off' : '') },
-        h('img', { class: 'thumb', src: '/img/' + p.imagenes[0], alt: '' }),
+        h('img', { class: 'thumb', src: photoSrc(p.imagenes[0]), alt: '' }),
         h('div', { class: 'info' },
           h('strong', {}, p.nombre),
           h('span', {}, p.resumen),
           h('div', {}, h('span', { class: 'badge' + (off ? ' off' : '') }, off ? 'Deshabilitado' : 'Activo'),
-            p.destacado && !off ? h('span', { class: 'badge star' }, 'Destacado') : null)
+            p.destacado && !off ? h('span', { class: 'badge star' }, 'Destacado') : null,
+            sinPublicar ? h('span', { class: 'badge draft' }, baseIds[p.id] ? 'Sin publicar' : 'Nuevo, sin publicar') : null)
         ),
         h('div', { class: 'acts' },
           h('button', { class: 'btn sm', type: 'button', onclick: function () { renderForm(i); } }, 'Editar'),
           toggle)
       ));
     });
+
+    var banner = null;
+    if (cambios.length) {
+      var pubBtn = h('button', { class: 'btn ok', type: 'button' }, 'Guardar todos los cambios');
+      pubBtn.addEventListener('click', function () { publish(pubBtn); });
+      var n = cambios.filter(function (c) { return c !== '_orden'; }).length || 1;
+      banner = h('div', { class: 'banner', role: 'status' },
+        h('p', {}, 'Tienes ' + n + (n === 1 ? ' producto' : ' productos') + ' con cambios sin publicar. Aún no se ven en la página.'),
+        h('div', { class: 'acts' }, pubBtn,
+          h('button', { class: 'btn ghost', type: 'button', onclick: function () {
+            if (confirm('¿Descartar todos los cambios sin publicar?')) { state.draft = clone(state.base); state.pending = {}; renderList(); }
+          } }, 'Descartar cambios')));
+    }
+
     show(h('div', { class: 'wrap' },
       h('div', { class: 'topbar' },
         h('div', {}, h('img', { src: '/img/aria-logo.png', alt: 'ARIA' }), h('h1', {}, 'Productos')),
@@ -144,9 +187,11 @@
           h('button', { class: 'btn', type: 'button', onclick: function () { renderForm(-1); } }, '+ Nuevo producto'),
           h('a', { class: 'btn ghost', href: '/', target: '_blank', rel: 'noopener' }, 'Ver página'),
           h('button', { class: 'btn ghost', type: 'button', onclick: function () {
+            if (changedIds().length && !confirm('Tienes cambios sin publicar que se perderán. ¿Salir de todos modos?')) return;
             api('DELETE', '/api/login').then(function () { renderLogin(); });
           } }, 'Salir'))
       ),
+      banner,
       list
     ));
   }
@@ -158,8 +203,8 @@
       ? { nombre: '', tipo: 'Arreglo en jarrón', categoria: 'jarron', resumen: '', descripcion: '', imagenes: [],
           caracteristicas: [{ k: 'Flores', v: 'Secas naturales' }, { k: 'Jarrón', v: '' }, { k: 'Altura total', v: '' }],
           destacado: false, activo: true }
-      : state.productos[index];
-    var fotos = orig.imagenes.map(function (f) { return { archivo: f, src: '/img/' + f }; });
+      : state.draft[index];
+    var fotos = orig.imagenes.map(function (f) { return { archivo: f, src: photoSrc(f) }; });
     var kvs = orig.caracteristicas.map(function (c) { return { k: c.k, v: c.v }; });
 
     var f = {
@@ -213,7 +258,7 @@
       }, Promise.resolve()).catch(function (ex) { err.textContent = ex.message; });
     } });
 
-    var saveBtn = h('button', { class: 'btn', type: 'submit' }, nuevo ? 'Crear producto' : 'Guardar cambios');
+    var saveBtn = h('button', { class: 'btn', type: 'submit' }, nuevo ? 'Crear producto' : 'Aplicar cambios');
 
     var form = h('form', { class: 'card', onsubmit: function (e) {
       e.preventDefault();
@@ -223,30 +268,25 @@
       var id = orig.id;
       if (nuevo) {
         var base = slug(nombre) || 'producto', n = 1; id = base;
-        while (state.productos.some(function (p) { return p.id === id; })) { n++; id = base + '-' + n; }
+        while (state.draft.some(function (p) { return p.id === id; })) { n++; id = base + '-' + n; }
       }
-      saveBtn.disabled = true; saveBtn.textContent = 'Guardando…';
-      // 1) sube las fotos nuevas, 2) guarda el producto
-      Promise.all(fotos.map(function (ft) {
-        if (ft.archivo) return Promise.resolve(ft.archivo);
-        return api('POST', '/api/imagen', { id: id, data: ft.data }).then(function (r) { return r.archivo; });
-      })).then(function (archivos) {
-        var prod = {
-          id: id, nombre: nombre, tipo: f.tipo.value.trim(), categoria: f.categoria.value,
-          resumen: f.resumen.value.trim(), descripcion: f.descripcion.value.trim(),
-          imagenes: archivos,
-          caracteristicas: kvs.filter(function (r) { return r.k.trim() && r.v.trim(); }),
-          destacado: f.destacado.checked, activo: f.activo.checked
-        };
-        var lista = nuevo ? [prod].concat(state.productos)
-          : state.productos.map(function (p, i) { return i === index ? prod : p; });
-        return persist(lista);
-      }).then(function () {
-        toast('Guardado. El cambio se verá en la página en 1 o 2 minutos.');
-        renderList();
-      }).catch(function (ex) {
-        err.textContent = ex.message; saveBtn.disabled = false; saveBtn.textContent = nuevo ? 'Crear producto' : 'Guardar cambios';
+      // Las fotos nuevas quedan en memoria hasta publicar; aquí solo se arma el borrador.
+      var archivos = fotos.map(function (ft, k) {
+        if (ft.archivo) return ft.archivo;
+        ft.archivo = id + '-' + Date.now().toString(36) + k.toString(36) + '.jpg';
+        state.pending[ft.archivo] = ft.data;
+        return ft.archivo;
       });
+      var prod = {
+        id: id, nombre: nombre, tipo: f.tipo.value.trim(), categoria: f.categoria.value,
+        resumen: f.resumen.value.trim(), descripcion: f.descripcion.value.trim(),
+        imagenes: archivos,
+        caracteristicas: kvs.filter(function (r) { return r.k.trim() && r.v.trim(); }),
+        destacado: f.destacado.checked, activo: f.activo.checked
+      };
+      if (nuevo) state.draft.unshift(prod); else state.draft[index] = prod;
+      toast('Cambio aplicado. Pulsa «Guardar todos los cambios» para publicarlo.');
+      renderList();
     } },
       h('h2', {}, nuevo ? 'Nuevo producto' : 'Editar: ' + orig.nombre),
       h('label', { for: 'f-nombre' }, 'Nombre'), f.nombre,
