@@ -119,8 +119,8 @@
       "nombre": "Nostalgia Floral",
       "tipo": "Arreglo en jarrón",
       "categoria": "jarron",
-      "resumen": "Jarrón de vidrio rosado · 35 cm",
-      "descripcion": "Arreglo de flores secas naturales en jarrón de vidrio color rosado.",
+      "resumen": "Arreglo en Jarrón de vidrio rosado · 34 cms",
+      "descripcion": "Un pequeño jardín detenido en el tiempo. Nostalgia Floral combina la delicadeza de rosas secas en tonos carmesí y crema con la frescura silvestre del eucalipto y el lagurus, abrazados por un jarrón rosado de textura artesanal.",
       "imagenes": [
         "nostalgia-floral.jpg"
       ],
@@ -134,8 +134,16 @@
           "v": "Vidrio color rosado"
         },
         {
-          "k": "Altura total",
-          "v": "35 cm"
+          "k": "Dimensiones del jarrón",
+          "v": "Alto 14 cms, diametro base 10 cms"
+        },
+        {
+          "k": "Altura y Ancho total del arreglo",
+          "v": "Alto total 33 cms, Ancho total 23 cms"
+        },
+        {
+          "k": "Precio",
+          "v": "$80.000"
         }
       ],
       "destacado": false,
