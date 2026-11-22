@@ -81,7 +81,7 @@
     },
     {
       "id": "susurro-amarillo",
-      "nombre": "Susurro amarillo",
+      "nombre": "Susurro Amarillo",
       "tipo": "Arreglo en jarrón",
       "categoria": "jarron",
       "resumen": "Jarrón en vidrio -  Color amarillo con textura - Altura total 16 CM",
@@ -96,11 +96,19 @@
         },
         {
           "k": "Jarrón",
-          "v": "vidrio"
+          "v": "vidrio con textura color amarillo"
         },
         {
-          "k": "Altura total",
-          "v": "16 cm"
+          "k": "Dimensiones del jarron",
+          "v": "Alto 5 cms diametro base 10 cms"
+        },
+        {
+          "k": "Altura y Ancho total del arreglo",
+          "v": "Alto 16 cms, Ancho 14 cms"
+        },
+        {
+          "k": "Precio",
+          "v": "$46.000"
         }
       ],
       "destacado": false,
