@@ -251,8 +251,8 @@
       "nombre": "Eternidad dorada",
       "tipo": "Ramo",
       "categoria": "ramo",
-      "resumen": "Ramo de flores secas y follajes",
-      "descripcion": "Diseñado para llenar cualquier espacio de luz, calidez y elegancia. Composición de varias flores secas y follajes naturales.",
+      "resumen": "Bouquet de flores secas y follaje 82 cms",
+      "descripcion": "Este bouquet de tallos largos te invita a diseñar tu propio rincón especial, adaptándose perfectamente a las dimensiones de tu jarrón favorito. Su armoniosa mezcla de tonos amarillos, blancos y follaje oscuro cobra vida con libertad, permitiéndote cortar los tallos a la medida exacta para realzar la belleza de tu espacio.",
       "imagenes": [
         "eternidad-dorada-1.jpg",
         "eternidad-dorada-2.jpg"
@@ -269,6 +269,10 @@
         {
           "k": "Tonos",
           "v": "Dorados, blancos y malva"
+        },
+        {
+          "k": "Precio",
+          "v": "$80.000"
         }
       ],
       "destacado": false,
