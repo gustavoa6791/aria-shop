@@ -263,8 +263,8 @@
       "nombre": "Sombra de Rosas",
       "tipo": "Arreglo en jarrón",
       "categoria": "jarron",
-      "resumen": "Jarrón de vidrio blanco con textura · 36 cm",
-      "descripcion": "Todo el conjunto está cuidadosamente dispuesto en un jarrón cilíndrico de textura rústica en tono blanco, ideal para aportar un toque acogedor y sofisticado a cualquier rincón de tu hogar u oficina.",
+      "resumen": "Arreglo en Jarrón de vidrio blanco con textura · 34 cms",
+      "descripcion": "Todo el conjunto está cuidadosamente dispuesto en un jarrón cilíndrico de textura rústica en tono blanco hueso, ideal para aportar un toque acogedor y sofisticado a cualquier rincón de tu hogar u oficina.",
       "imagenes": [
         "sombra-de-rosas.jpg"
       ],
@@ -275,11 +275,19 @@
         },
         {
           "k": "Jarrón",
-          "v": "Vidrio blanco con textura"
+          "v": "Vidrio blanco hueso con textura"
         },
         {
-          "k": "Altura total",
-          "v": "36 cm"
+          "k": "Dimensiones del jarron",
+          "v": "Alto 14 cms, diametro base 10 cms"
+        },
+        {
+          "k": "Altura y Ancho total del arreglo",
+          "v": "Alto 34 cms, Ancho 29 cms"
+        },
+        {
+          "k": "Precio",
+          "v": "$85.000"
         }
       ],
       "destacado": true,
