@@ -318,8 +318,8 @@
       "nombre": "Luz del valle",
       "tipo": "Arreglo en jarrón",
       "categoria": "jarron",
-      "resumen": "Jarrón de vidrio verde oliva con textura · 50 cm",
-      "descripcion": "Belleza natural, esencia eterna. Arreglo de flores secas naturales en jarrón de vidrio color verde oliva con textura.",
+      "resumen": "Arreglo en Jarrón de vidrio verde oliva con textura · 50 cm",
+      "descripcion": "Esta pieza única combina la magia de las flores preservadas, que mantienen su flexibilidad, con la belleza eterna de las flores secas. Al unir texturas delicadas y tallos firmes, logran un detalle decorativo de larga duración que simboliza la permanencia de los momentos especiales.",
       "imagenes": [
         "luz-del-valle-1.jpg",
         "luz-del-valle-2.jpg",
@@ -336,8 +336,16 @@
           "v": "Vidrio verde oliva con textura"
         },
         {
-          "k": "Altura total",
-          "v": "50 cm"
+          "k": "Dimensiones del jarron",
+          "v": "Alto 17 cms, diametro base 13 cms"
+        },
+        {
+          "k": "Altura y Ancho total del arreglo",
+          "v": "Altura total 50 cms, Ancho total 38 cms"
+        },
+        {
+          "k": "Precio",
+          "v": "$170.000"
         }
       ],
       "destacado": true,
