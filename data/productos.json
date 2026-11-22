@@ -216,8 +216,8 @@
       "nombre": "Melodía Floral",
       "tipo": "Arreglo en jarrón",
       "categoria": "jarron",
-      "resumen": "Jarrón de cerámica blanco · 40 cm",
-      "descripcion": "Arreglo en flores secas naturales y jarrón de cerámica color blanco.",
+      "resumen": "Arreglo en Jarrón de cerámica blanco con textura· 36 cms",
+      "descripcion": "Una danza de texturas donde la fluidez del eucalipto crea una atmósfera serena y envolvente que celebra la belleza natural en calma, las espigas se funden en un abrazo eterno lleno de distinción.",
       "imagenes": [
         "melodia-floral.jpg"
       ],
@@ -228,11 +228,19 @@
         },
         {
           "k": "Jarrón",
-          "v": "Cerámica blanco"
+          "v": "Cerámica blanco con textura"
         },
         {
-          "k": "Altura total",
-          "v": "40 cm"
+          "k": "Dimensiones del jarrón",
+          "v": "Altura 11 cms, diametro base 10 cms"
+        },
+        {
+          "k": "Altura y Ancho total del arreglo",
+          "v": "Alto 36 cms ,Ancho 45 cms"
+        },
+        {
+          "k": "Precio",
+          "v": "$130.000"
         }
       ],
       "destacado": true,
