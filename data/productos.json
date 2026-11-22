@@ -154,8 +154,8 @@
       "nombre": "Dulce Ocre",
       "tipo": "Arreglo en jarrón",
       "categoria": "jarron",
-      "resumen": "Jarrón de cerámica dorado ocre · 45 cm",
-      "descripcion": "Arreglo de flores secas naturales en jarrón de cerámica color dorado ocre.",
+      "resumen": "Jarrón de cerámica dorado ocre · 45 cms",
+      "descripcion": "Es un cautivador arreglo de flores secas que combina rosas en tonos burdeos, eucalipto plateado y delicados helechos. Su textura rústica y paleta de colores añaden un toque de elegancia atemporal y sofisticada.",
       "imagenes": [
         "dulce-ocre.jpg"
       ],
@@ -169,8 +169,16 @@
           "v": "Cerámica dorado ocre"
         },
         {
-          "k": "Altura total",
-          "v": "45 cm"
+          "k": "Dimensiones del Jarrón",
+          "v": "Alto 14 cms, diametro 15 cms"
+        },
+        {
+          "k": "Altura y Ancho total del arreglo",
+          "v": "Alto 45 cms, Ancho 41 cms"
+        },
+        {
+          "k": "Precio",
+          "v": "$145.000"
         }
       ],
       "destacado": false,
