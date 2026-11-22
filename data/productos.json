@@ -42,11 +42,11 @@
     },
     {
       "id": "aura-calida",
-      "nombre": "Aura cálida",
+      "nombre": "Aura Cálida",
       "tipo": "Arreglo en jarrón",
       "categoria": "jarron",
-      "resumen": "Jarrón en cerámica - Color verde con textura - Altura total 32 CM",
-      "descripcion": "Una composición de flores secas y follajes en tonos ocre, terracota y vino, que llena el espacio de calidez. Está montada en un jarrón de cerámica verde con textura, que contrasta con los colores del arreglo.",
+      "resumen": "Jarrón en cerámica - Color verde con textura - Altura total 33 cms",
+      "descripcion": "Rosas en matices tierra y borgoña, hojas secas y ramas ligeras reunidas en una base menta de textura acanalada. Un diseño cálido y sereno que conserva el encanto de lo natural en el tiempo.",
       "imagenes": [
         "aura-calida-mwmd8efx0.jpg"
       ],
@@ -60,8 +60,16 @@
           "v": "cerámica"
         },
         {
-          "k": "Altura total",
-          "v": "32 cm"
+          "k": "Dimensiones del Jarrón",
+          "v": "Alto 9.5cm diametro base 10 cms"
+        },
+        {
+          "k": "Altura y Ancho total",
+          "v": "33 cms ,34 cms"
+        },
+        {
+          "k": "Precio",
+          "v": "$130.000"
         }
       ],
       "destacado": false,
