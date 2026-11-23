@@ -311,7 +311,7 @@
         }
       ],
       "destacado": true,
-      "activo": true
+      "activo": false
     },
     {
       "id": "luz-del-valle",
