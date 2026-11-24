@@ -280,13 +280,15 @@
     },
     {
       "id": "sombra-de-rosas",
-      "nombre": "Sombra de Rosas",
+      "nombre": "Sol de Otoño",
       "tipo": "Arreglo en jarrón",
       "categoria": "jarron",
-      "resumen": "Arreglo en Jarrón de vidrio blanco con textura · 34 cms",
-      "descripcion": "Todo el conjunto está cuidadosamente dispuesto en un jarrón cilíndrico de textura rústica en tono blanco hueso, ideal para aportar un toque acogedor y sofisticado a cualquier rincón de tu hogar u oficina.",
+      "resumen": "Arreglo en Jarrón de vidrio blanco con textura · 46 cms",
+      "descripcion": "Una pieza que fusiona la textura suave de las rosas preservadas con la calidez de las espigas, ideal para dar un toque sofisticado y eterno a cualquier espacio.",
       "imagenes": [
-        "sombra-de-rosas.jpg"
+        "sombra-de-rosas-mwu2a6310.jpg",
+        "sombra-de-rosas-mwu2a6311.jpg",
+        "sombra-de-rosas-mwu2a6312.jpg"
       ],
       "caracteristicas": [
         {
@@ -295,23 +297,23 @@
         },
         {
           "k": "Jarrón",
-          "v": "Vidrio blanco hueso con textura"
+          "v": "Vidrio blanco con textura"
         },
         {
           "k": "Dimensiones del jarron",
-          "v": "Alto 14 cms, diametro base 10 cms"
+          "v": "Alto 12 cms, diametro 15 cms"
         },
         {
           "k": "Altura y Ancho total del arreglo",
-          "v": "Alto 34 cms, Ancho 29 cms"
+          "v": "Alto 46 cms, Ancho 41 cms"
         },
         {
           "k": "Precio",
-          "v": "$85.000"
+          "v": "$155.000"
         }
       ],
       "destacado": true,
-      "activo": false
+      "activo": true
     },
     {
       "id": "luz-del-valle",
